@@ -2,8 +2,13 @@ package com.driss.pokemon.presentation.pokemondetail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
@@ -27,9 +32,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.driss.pokemon.LocalNavController
 import com.driss.pokemon.domain.model.Pokemon
 import com.driss.pokemon.presentation.common.ErrorStateComponent
+import com.driss.pokemon.presentation.common.PokemonStatsComponent
+import com.driss.pokemon.presentation.common.PokemonTypeComponent
+import com.driss.pokemon.ui.theme.Sizes
 import com.driss.pokemon.util.IResult
+import com.driss.pokemon.util.extensions.capitalFirst
 import com.skydoves.landscapist.coil.CoilImage
-import java.util.Locale
 
 @Composable
 fun PokemonDetailScreen(
@@ -66,30 +74,33 @@ private fun PokemonSuccess(pokemonDetails: Pokemon?) {
                 })
         }) {
             Column(
-                modifier = Modifier.padding(it),
+                modifier = Modifier
+                    .padding(it)
+                    .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 CoilImage(
+                    modifier= Modifier.size(120.dp),
                     imageModel = {
                         details.frontSprite
                     },
                 )
                 Text(
                     modifier = Modifier
-                        .padding(top = 8.dp)
+                        .padding(top = Sizes.XXS)
                         .fillMaxWidth(),
                     text = details.name.capitalFirst(),
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                     fontSize = 24.sp
                 )
+                Spacer(modifier = Modifier.height(Sizes.M))
+                PokemonTypeComponent(pokemonTypeSlots = details.pokemonTypes)
+                Spacer(modifier = Modifier.height(Sizes.M))
+                PokemonStatsComponent(stats = details.stats)
             }
         }
     }
 }
 
-private fun String.capitalFirst(): String {
-    return this.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-
-}

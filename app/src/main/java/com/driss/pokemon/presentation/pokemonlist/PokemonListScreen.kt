@@ -24,13 +24,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.driss.pokemon.LocalNavController
 import com.driss.pokemon.presentation.common.ErrorStateComponent
+import com.driss.pokemon.ui.theme.Sizes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,8 +36,6 @@ fun PokemonListScreen(
     viewModel: PokemonListViewModel = hiltViewModel()
 ) {
     val semiTransparentSurface = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f)
-    val navController: NavController = LocalNavController.current
-
     val pagingData = viewModel.pagingData.collectAsLazyPagingItems()
 
     Scaffold(topBar = {
@@ -72,7 +68,7 @@ fun PokemonListScreen(
                     LazyVerticalGrid(
                         modifier = Modifier.fillMaxSize(),
                         columns = GridCells.Fixed(count = 2),
-                        contentPadding = PaddingValues(16.dp)
+                        contentPadding = PaddingValues(Sizes.M)
                     ) {
                         items(pagingData.itemCount) { index ->
 
@@ -80,7 +76,7 @@ fun PokemonListScreen(
                                 PokemonCell(
                                     entry = pokemon,
                                     modifier = Modifier
-                                        .padding(8.dp)
+                                        .padding(Sizes.XXS)
                                 )
                             }
                         }
