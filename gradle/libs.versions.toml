@@ -1,5 +1,6 @@
 [versions]
 agp = "8.3.1"
+datastorePreferences = "1.0.0"
 kotlin = "1.9.10"
 kotlinKsp = "1.9.10-1.0.13"
 coreKtx = "1.12.0"
@@ -22,6 +23,7 @@ landscapist = "2.2.11"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 androidx-paging-common = { module = "androidx.paging:paging-common", version.ref = "paging-version" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
 androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging-version" }
