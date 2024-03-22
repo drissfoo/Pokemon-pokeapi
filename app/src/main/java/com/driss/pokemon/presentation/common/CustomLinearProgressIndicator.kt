@@ -26,7 +26,7 @@ fun CustomLinearProgressIndicator(
         modifier = modifier
             .clip(clipShape)
             .background(backgroundColor)
-            .height(12.dp)
+            .fillMaxHeight()
     ) {
         Box(
             modifier = Modifier

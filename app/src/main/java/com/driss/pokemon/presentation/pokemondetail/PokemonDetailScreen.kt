@@ -1,5 +1,6 @@
 package com.driss.pokemon.presentation.pokemondetail
 
+import androidx.annotation.OpenForTesting
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -56,9 +57,10 @@ fun PokemonDetailScreen(
     }
 }
 
+@OpenForTesting
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun PokemonSuccess(pokemonDetails: Pokemon?) {
+fun PokemonSuccess(pokemonDetails: Pokemon?) {
     val navController = LocalNavController.current
 
     pokemonDetails?.let { details ->

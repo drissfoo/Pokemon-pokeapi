@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.daggerHiltAndroidGradle)
 }
-android.buildFeatures.buildConfig =true
+android.buildFeatures.buildConfig = true
 android {
     namespace = "com.driss.pokemon"
     compileSdk = 34
@@ -22,7 +22,7 @@ android {
             useSupportLibrary = true
         }
 
-        buildConfigField( "String", "API_BASE", "\"https://pokeapi.co/api/v2/\"")
+        buildConfigField("String", "API_BASE", "\"https://pokeapi.co/api/v2/\"")
     }
 
     buildTypes {
@@ -72,6 +72,15 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    //Testing
+    testImplementation(libs.hilt.android.testing)
+    // For instrumented tests.
+    androidTestImplementation(libs.hilt.android.testing)
+    // ...with Kotlin.
+    kaptTest(libs.hilt.android.compiler)
+    // ...with Kotlin.
+    kaptAndroidTest(libs.hilt.android.compiler)
+
     // Hilt
     kapt(libs.hilt.android.compiler)
     implementation(libs.hilt.android)
@@ -80,7 +89,6 @@ dependencies {
     // Network & Serialization
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
-    implementation(libs.retrofit.converter.kotlinxSerialization)
     implementation(libs.okhttp)
     implementation(libs.okhttp.loggingInterceptor)
 

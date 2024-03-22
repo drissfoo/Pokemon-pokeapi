@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class PokemonDetailUseCase @Inject constructor(private val repository: PokemonRepository) {
+class GetPokemonDetailUseCase @Inject constructor(private val repository: PokemonRepository) {
 
     suspend fun execute(name: String): Flow<Result<Pokemon?>> {
         return flow {

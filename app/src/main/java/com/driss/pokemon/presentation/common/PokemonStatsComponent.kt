@@ -21,6 +21,8 @@ import androidx.compose.ui.unit.sp
 import com.driss.pokemon.domain.model.Stat
 import com.driss.pokemon.domain.model.StatType
 import com.driss.pokemon.ui.theme.Sizes
+import com.driss.pokemon.util.extensions.capitalFirst
+import com.driss.pokemon.util.extensions.improve
 
 @Composable
 fun PokemonStatsComponent(
@@ -48,7 +50,7 @@ private fun PokemonStat(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = stat.stat.name,
+            text = stat.stat.name.improve(),
             modifier = Modifier.width(100.dp),
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,
@@ -59,7 +61,7 @@ private fun PokemonStat(
         CustomLinearProgressIndicator(
             modifier = Modifier
                 .weight(1f)
-                .height(10.dp),
+                .height(15.dp),
             progress =
             stat.baseStat.toFloat().coerceAtLeast(0f).coerceAtMost(100f) / 100,
         )

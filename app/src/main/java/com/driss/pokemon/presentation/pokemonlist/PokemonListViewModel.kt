@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.driss.pokemon.domain.model.Pokemon
-import com.driss.pokemon.domain.usecase.pokemonlist.PokemonListUseCase
+import com.driss.pokemon.domain.usecase.pokemonlist.GetPokemonListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokemonListViewModel @Inject constructor(
-    private val useCase: PokemonListUseCase
+    private val useCase: GetPokemonListUseCase
 ) : ViewModel() {
 
     private val _pagingData: MutableStateFlow<PagingData<Pokemon>> = MutableStateFlow(

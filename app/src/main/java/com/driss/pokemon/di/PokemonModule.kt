@@ -4,7 +4,7 @@ import com.driss.pokemon.data.repository.PokemonRepositoryImpl
 import com.driss.pokemon.data.source.PokemonApi
 import com.driss.pokemon.domain.repository.PokemonRepository
 import com.driss.pokemon.domain.usecase.pokemonlist.PokemonListDataSourceFactory
-import com.driss.pokemon.domain.usecase.pokemonlist.PokemonListUseCase
+import com.driss.pokemon.domain.usecase.pokemonlist.GetPokemonListUseCase
 import com.driss.pokemon.presentation.pokemonlist.PokemonListViewModel
 import dagger.Module
 import dagger.Provides
@@ -31,13 +31,13 @@ object PokemonModule {
     @Provides
     fun providePokemonListUseCase(
         pokemonRepository: PokemonListDataSourceFactory
-    ): PokemonListUseCase {
-        return PokemonListUseCase(pokemonRepository)
+    ): GetPokemonListUseCase {
+        return GetPokemonListUseCase(pokemonRepository)
     }
 
     @Provides
     fun providePokemonListViewModel(
-        useCase: PokemonListUseCase
+        useCase: GetPokemonListUseCase
     ): PokemonListViewModel {
         return PokemonListViewModel(useCase)
     }

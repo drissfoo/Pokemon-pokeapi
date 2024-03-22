@@ -2,10 +2,16 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="PokemonTypeComponentPreview">
+      <entry key="Tests in 'com'">
         <State />
       </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="myTest()">
+        <State />
+      </entry>
+      <entry key="myTest() (1)">
         <State />
       </entry>
     </value>

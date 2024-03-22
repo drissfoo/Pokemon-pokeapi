@@ -31,7 +31,7 @@ class PokemonListPagingSource(
             LoadResult.Page(
                 data = list,
                 prevKey = if (offset < limit) null else (offset - limit),
-                nextKey = if (offset >= 1302) null else (offset + limit)
+                nextKey = if (offset >= data.count) null else (offset + limit)
             )
         } else {
             LoadResult.Error(Exception("No Response"))
