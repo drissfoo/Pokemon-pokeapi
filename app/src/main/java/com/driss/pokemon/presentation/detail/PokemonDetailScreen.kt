@@ -1,4 +1,4 @@
-package com.driss.pokemon.presentation.pokemondetail
+package com.driss.pokemon.presentation.detail
 
 import androidx.annotation.OpenForTesting
 import androidx.compose.foundation.layout.Arrangement
@@ -37,7 +37,7 @@ import com.driss.pokemon.presentation.common.PokemonStatsComponent
 import com.driss.pokemon.presentation.common.PokemonTypeComponent
 import com.driss.pokemon.ui.theme.Sizes
 import com.driss.pokemon.util.IResult
-import com.driss.pokemon.util.extensions.capitalFirst
+import com.driss.pokemon.util.extensions.capitalizeFirst
 import com.skydoves.landscapist.coil.CoilImage
 
 @Composable
@@ -51,7 +51,7 @@ fun PokemonDetailScreen(
     }
 
     when (pokemonData.status) {
-        IResult.Status.SUCCESS -> PokemonSuccess(pokemonData.data)
+        IResult.Status.SUCCESS -> PokemonDetail(pokemonData.data)
         IResult.Status.ERROR -> ErrorStateComponent()
         IResult.Status.LOADING -> CircularProgressIndicator()
     }
@@ -60,12 +60,12 @@ fun PokemonDetailScreen(
 @OpenForTesting
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PokemonSuccess(pokemonDetails: Pokemon?) {
+fun PokemonDetail(pokemonDetails: Pokemon?) {
     val navController = LocalNavController.current
 
     pokemonDetails?.let { details ->
         Scaffold(topBar = {
-            TopAppBar(title = { Text(text = details.name.capitalFirst()) },
+            TopAppBar(title = { Text(text = details.name.capitalizeFirst()) },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
@@ -92,7 +92,7 @@ fun PokemonSuccess(pokemonDetails: Pokemon?) {
                     modifier = Modifier
                         .padding(top = Sizes.XXS)
                         .fillMaxWidth(),
-                    text = details.name.capitalFirst(),
+                    text = details.name.capitalizeFirst(),
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                     fontSize = 24.sp

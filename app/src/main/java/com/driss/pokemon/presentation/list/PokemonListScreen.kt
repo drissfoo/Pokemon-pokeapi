@@ -1,4 +1,4 @@
-package com.driss.pokemon.presentation.pokemonlist
+package com.driss.pokemon.presentation.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

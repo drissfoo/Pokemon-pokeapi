@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.driss.pokemon.domain.model.PokemonType
 import com.driss.pokemon.domain.model.Type
 import com.driss.pokemon.ui.theme.Sizes
-import com.driss.pokemon.util.extensions.capitalFirst
+import com.driss.pokemon.util.extensions.capitalizeFirst
 import java.util.Locale
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -34,7 +34,7 @@ fun PokemonTypeComponent(
                 selected = true,
                 onClick = {},
                 label = {
-                    Text(text = it.type.name.capitalFirst())
+                    Text(text = it.type.name.capitalizeFirst())
                 },
                 colors = FilterChipDefaults.filterChipColors().copy(
                     containerColor = it.type.name.toColor(),

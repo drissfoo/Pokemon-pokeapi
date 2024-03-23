@@ -21,8 +21,7 @@ import androidx.compose.ui.unit.sp
 import com.driss.pokemon.domain.model.Stat
 import com.driss.pokemon.domain.model.StatType
 import com.driss.pokemon.ui.theme.Sizes
-import com.driss.pokemon.util.extensions.capitalFirst
-import com.driss.pokemon.util.extensions.improve
+import com.driss.pokemon.util.extensions.formatCapitalize
 
 @Composable
 fun PokemonStatsComponent(
@@ -50,7 +49,7 @@ private fun PokemonStat(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = stat.stat.name.improve(),
+            text = stat.stat.name.formatCapitalize(),
             modifier = Modifier.width(100.dp),
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,

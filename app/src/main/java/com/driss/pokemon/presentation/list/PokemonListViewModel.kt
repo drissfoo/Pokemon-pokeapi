@@ -1,4 +1,4 @@
-package com.driss.pokemon.presentation.pokemonlist
+package com.driss.pokemon.presentation.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

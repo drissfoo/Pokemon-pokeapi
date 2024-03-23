@@ -5,7 +5,7 @@ import com.driss.pokemon.data.source.PokemonApi
 import com.driss.pokemon.domain.repository.PokemonRepository
 import com.driss.pokemon.domain.usecase.pokemonlist.PokemonListDataSourceFactory
 import com.driss.pokemon.domain.usecase.pokemonlist.GetPokemonListUseCase
-import com.driss.pokemon.presentation.pokemonlist.PokemonListViewModel
+import com.driss.pokemon.presentation.list.PokemonListViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

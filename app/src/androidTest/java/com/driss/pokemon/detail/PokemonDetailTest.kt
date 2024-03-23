@@ -14,13 +14,13 @@ import com.driss.pokemon.data.entity.StatDto
 import com.driss.pokemon.data.entity.StatTypeDto
 import com.driss.pokemon.data.entity.TypeDto
 import com.driss.pokemon.data.entity.toModel
-import com.driss.pokemon.presentation.pokemondetail.PokemonSuccess
+import com.driss.pokemon.presentation.detail.PokemonDetail
 import com.driss.pokemon.ui.theme.AppTheme
 import org.junit.Rule
 import org.junit.Test
 
 
-class PokemonSuccessTest {
+class PokemonDetailTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
@@ -60,12 +60,12 @@ class PokemonSuccessTest {
     )
 
     @Test
-    fun myTest() {
+    fun test_pokemon_details_data_is_displayed_accordingly_on_the_UI() {
         composeTestRule.setContent {
             val navController = rememberNavController()
             AppTheme {
                 CompositionLocalProvider(LocalNavController provides navController) {
-                    PokemonSuccess(
+                    PokemonDetail(
                         pokemonDetails = venusaur.toModel()
                     )
                 }

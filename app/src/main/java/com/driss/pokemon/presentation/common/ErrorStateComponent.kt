@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.driss.pokemon.ui.theme.Sizes
 
 @Composable
 fun ErrorStateComponent(modifier: Modifier = Modifier) {
@@ -24,10 +25,10 @@ fun ErrorStateComponent(modifier: Modifier = Modifier) {
     ) {
         Icon(imageVector = Icons.Default.Warning, contentDescription = "Warning")
         Text(
-            text = "You got an error!",
+            text = "An error occurred! Try Again!",
             fontSize = 32.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(top = 20.dp)
+            modifier = Modifier.padding(top = Sizes.L)
         )
     }
 }

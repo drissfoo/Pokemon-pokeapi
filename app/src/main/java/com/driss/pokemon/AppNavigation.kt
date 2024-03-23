@@ -9,8 +9,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.driss.pokemon.presentation.pokemondetail.PokemonDetailScreen
-import com.driss.pokemon.presentation.pokemonlist.PokemonListScreen
+import com.driss.pokemon.presentation.detail.PokemonDetailScreen
+import com.driss.pokemon.presentation.list.PokemonListScreen
 
 
 val LocalNavController = compositionLocalOf<NavHostController> {
