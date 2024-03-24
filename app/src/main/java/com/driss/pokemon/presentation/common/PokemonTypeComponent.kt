@@ -20,8 +20,8 @@ import java.util.Locale
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun PokemonTypeComponent(
+    pokemonTypeSlots: List<PokemonType>,
     modifier: Modifier = Modifier,
-    pokemonTypeSlots: List<PokemonType>
 ) {
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(Sizes.XXS),
@@ -52,26 +52,27 @@ private fun String.toColor(): Color {
     return enumType.color
 }
 
+@Suppress("MagicNumber")
 enum class AllPokemonTypes(val color: Color) {
-    normal(Color(0xFFA8A877)),
-    fire(Color(0xFFEF8030)),
-    water(Color(0xFF6790F0)),
-    electric(Color(0xFFF8CF30)),
-    grass(Color(0xFF78C84F)),
-    ice(Color(0xFF98D8D8)),
-    fighting(Color(0xFFC03028)),
-    poison(Color(0xFF9F409F)),
-    ground(Color(0xFFE0C068)),
-    flying(Color(0xFFA890F0)),
-    psychic(Color(0xFFF85788)),
-    bug(Color(0xFFA8B720)),
-    rock(Color(0xFFB8A038)),
-    ghost(Color(0xFF705898)),
-    dragon(Color(0xFF7038F8)),
-    dark(Color(0xFF705848)),
-    steel(Color(0xFFB8B8D0)),
-    fairy(Color(0xFFF0B5BC)),
-    stellar(Color(0xFF34ACE7));
+    NORMAL(Color(0xFFA8A877)),
+    FIRE(Color(0xFFEF8030)),
+    WATER(Color(0xFF6790F0)),
+    ELECTRIC(Color(0xFFF8CF30)),
+    GRASS(Color(0xFF78C84F)),
+    ICE(Color(0xFF98D8D8)),
+    FIGHTING(Color(0xFFC03028)),
+    POISON(Color(0xFF9F409F)),
+    GROUND(Color(0xFFE0C068)),
+    FLYING(Color(0xFFA890F0)),
+    PSYCHIC(Color(0xFFF85788)),
+    BUG(Color(0xFFA8B720)),
+    ROCK(Color(0xFFB8A038)),
+    GHOST(Color(0xFF705898)),
+    DRAGON(Color(0xFF7038F8)),
+    DARK(Color(0xFF705848)),
+    STEEL(Color(0xFFB8B8D0)),
+    FAIRY(Color(0xFFF0B5BC)),
+    STELLAR(Color(0xFF34ACE7));
 }
 
 @Preview

@@ -31,7 +31,7 @@ class PokemonDetailTest {
         sprites = SpritesDto(""),
         stats = listOf(
             StatDto(
-                base_stat = 23,
+                baseStat = 23,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "Attack",
@@ -39,7 +39,7 @@ class PokemonDetailTest {
                 )
             ),
             StatDto(
-                base_stat = 89,
+                baseStat = 89,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "hp",
@@ -66,7 +66,8 @@ class PokemonDetailTest {
             AppTheme {
                 CompositionLocalProvider(LocalNavController provides navController) {
                     PokemonDetail(
-                        pokemonDetails = venusaur.toModel()
+                        pokemonDetails = venusaur.toModel(),
+                        modifier = modifier
                     )
                 }
             }

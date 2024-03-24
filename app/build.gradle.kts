@@ -1,11 +1,13 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.kapt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.detekt)
     alias(libs.plugins.daggerHiltAndroidGradle)
+    alias(libs.plugins.kapt)
 }
 android.buildFeatures.buildConfig = true
+
 android {
     namespace = "com.driss.pokemon"
     compileSdk = 34
@@ -34,24 +36,26 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+    kotlin {
+        jvmToolchain(libs.versions.jvm.get().toInt())
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(libs.versions.jvm.get().toInt()))
+        }
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
+        kotlinCompilerExtensionVersion = "1.5.10"
     }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
@@ -102,6 +106,9 @@ dependencies {
     implementation(libs.androidx.paging.compose)
 
     implementation(libs.androidx.datastore.preferences)
+
+    // Detekt plugin                                                                                                  //
+    detektPlugins(libs.detekt.twitter)
 }
 
 // Allow references to generated code

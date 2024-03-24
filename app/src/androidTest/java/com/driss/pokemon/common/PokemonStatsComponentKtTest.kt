@@ -2,7 +2,6 @@ package com.driss.pokemon.common
 
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.navigation.compose.rememberNavController
@@ -15,9 +14,7 @@ import com.driss.pokemon.data.entity.StatTypeDto
 import com.driss.pokemon.data.entity.TypeDto
 import com.driss.pokemon.data.entity.toModel
 import com.driss.pokemon.presentation.common.PokemonStatsComponent
-import com.driss.pokemon.presentation.detail.PokemonDetail
 import com.driss.pokemon.ui.theme.AppTheme
-import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 
@@ -33,7 +30,7 @@ class PokemonStatsComponentKtTest{
         sprites = SpritesDto(""),
         stats = listOf(
             StatDto(
-                base_stat = 23,
+                baseStat = 23,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "attack-defense",
@@ -41,7 +38,7 @@ class PokemonStatsComponentKtTest{
                 )
             ),
             StatDto(
-                base_stat = 89,
+                baseStat = 89,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "hp",

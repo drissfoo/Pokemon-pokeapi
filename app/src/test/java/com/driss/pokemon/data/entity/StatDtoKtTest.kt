@@ -1,9 +1,7 @@
 package com.driss.pokemon.data.entity
 
-import com.driss.pokemon.domain.model.PokemonType
 import com.driss.pokemon.domain.model.Stat
 import com.driss.pokemon.domain.model.StatType
-import com.driss.pokemon.domain.model.Type
 import com.driss.pokemon.util.FakePokemonRepository
 import org.junit.Assert.*
 import org.junit.Test
@@ -21,7 +19,7 @@ class StatDtoKtTest{
                     name = it.stat.name,
                     url = it.stat.url
                 ),
-                baseStat = it.base_stat,
+                baseStat = it.baseStat,
                 effort = it.effort
             )
         }

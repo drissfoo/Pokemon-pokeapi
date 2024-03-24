@@ -16,7 +16,7 @@ class PokemonDtoKtTest {
             stats = entryPokemonDto.stats.toModel(),
             weight = entryPokemonDto.weight,
             height = entryPokemonDto.height,
-            frontSprite = entryPokemonDto.sprites.front_default,
+            frontSprite = entryPokemonDto.sprites.frontDefault,
             pokemonTypes = entryPokemonDto.types.toModel(),
             id = entryPokemonDto.id
         )

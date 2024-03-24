@@ -17,12 +17,12 @@ class PokemonListPagingSource(
         }
 
     override suspend fun load(params: LoadParams<Int>):
-            LoadResult<Int, Pokemon> = try {
+            LoadResult<Int, Pokemon>  {
         val offset = params.key ?: 0
         val limit = params.loadSize
         val response = repository.getPokemonList(offset = offset, limit = limit)
         val data = response.body()
-        if (!response.isSuccessful) {
+        return if (!response.isSuccessful) {
             LoadResult.Error(Exception("Request error"))
         } else if (data != null) {
             val list: List<Pokemon> = data.results.mapNotNull {
@@ -36,8 +36,6 @@ class PokemonListPagingSource(
         } else {
             LoadResult.Error(Exception("No Response"))
         }
-    } catch (e: Exception) {
-        LoadResult.Error(e)
     }
 
 }

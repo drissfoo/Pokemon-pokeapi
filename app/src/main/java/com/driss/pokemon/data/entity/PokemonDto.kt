@@ -19,7 +19,7 @@ internal fun PokemonDto.toModel() : Pokemon {
         height = height,
         id = id,
         name = name,
-        frontSprite = sprites.front_default,
+        frontSprite = sprites.frontDefault,
         stats = stats.toModel(),
         pokemonTypes = types.toModel(),
         weight = weight

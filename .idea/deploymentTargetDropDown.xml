@@ -2,13 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="Tests in 'com'">
-        <State />
-      </entry>
       <entry key="app">
-        <State />
-      </entry>
-      <entry key="test_pokemon_stats_data_is_displayed_accordingly_on_the_UI()">
         <State />
       </entry>
       <entry key="test_pokemon_stats_data_is_displayed_accordingly_on_the_UI() (1)">

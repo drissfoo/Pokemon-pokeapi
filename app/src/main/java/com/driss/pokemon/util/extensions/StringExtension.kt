@@ -2,7 +2,7 @@ package com.driss.pokemon.util.extensions
 
 import java.util.Locale
 
-fun String.capitalizeFirst(): String =
+internal fun String.capitalizeFirst(): String =
     this.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
-fun String.formatCapitalize(): String = this.replace("-", " ").trimStart().capitalizeFirst()
+internal fun String.formatCapitalize(): String = this.replace("-", " ").trimStart().capitalizeFirst()

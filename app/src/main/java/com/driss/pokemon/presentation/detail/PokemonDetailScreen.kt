@@ -39,11 +39,13 @@ import com.driss.pokemon.ui.theme.Sizes
 import com.driss.pokemon.util.IResult
 import com.driss.pokemon.util.extensions.capitalizeFirst
 import com.skydoves.landscapist.coil.CoilImage
+import okhttp3.internal.toImmutableList
 
 @Composable
 fun PokemonDetailScreen(
+    pokemonName: String,
+    modifier: Modifier = Modifier,
     viewModel: PokemonDetailViewModel = hiltViewModel(),
-    pokemonName: String
 ) {
     val pokemonData by viewModel.pokemon.collectAsState()
     LaunchedEffect(key1 = true) {
@@ -51,20 +53,25 @@ fun PokemonDetailScreen(
     }
 
     when (pokemonData.status) {
-        IResult.Status.SUCCESS -> PokemonDetail(pokemonData.data)
-        IResult.Status.ERROR -> ErrorStateComponent()
-        IResult.Status.LOADING -> CircularProgressIndicator()
+        IResult.Status.SUCCESS -> PokemonDetail(pokemonData.data, modifier)
+        IResult.Status.ERROR -> ErrorStateComponent(modifier = modifier)
+        IResult.Status.LOADING -> CircularProgressIndicator(modifier = modifier)
     }
 }
 
 @OpenForTesting
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PokemonDetail(pokemonDetails: Pokemon?) {
+fun PokemonDetail(
+    pokemonDetails: Pokemon?,
+    modifier: Modifier = Modifier,
+) {
     val navController = LocalNavController.current
 
     pokemonDetails?.let { details ->
-        Scaffold(topBar = {
+        Scaffold(
+            modifier = modifier,
+            topBar = {
             TopAppBar(title = { Text(text = details.name.capitalizeFirst()) },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
@@ -83,7 +90,7 @@ fun PokemonDetail(pokemonDetails: Pokemon?) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 CoilImage(
-                    modifier= Modifier.size(120.dp),
+                    modifier = Modifier.size(120.dp),
                     imageModel = {
                         details.frontSprite
                     },
@@ -98,7 +105,7 @@ fun PokemonDetail(pokemonDetails: Pokemon?) {
                     fontSize = 24.sp
                 )
                 Spacer(modifier = Modifier.height(Sizes.M))
-                PokemonTypeComponent(pokemonTypeSlots = details.pokemonTypes)
+                PokemonTypeComponent(pokemonTypeSlots = details.pokemonTypes.toImmutableList())
                 Spacer(modifier = Modifier.height(Sizes.M))
                 PokemonStatsComponent(stats = details.stats)
             }

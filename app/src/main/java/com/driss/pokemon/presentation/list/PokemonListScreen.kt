@@ -3,6 +3,7 @@ package com.driss.pokemon.presentation.list
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,35 +25,41 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.driss.pokemon.domain.model.Pokemon
 import com.driss.pokemon.presentation.common.ErrorStateComponent
 import com.driss.pokemon.ui.theme.Sizes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokemonListScreen(
-    viewModel: PokemonListViewModel = hiltViewModel()
+    modifier: Modifier = Modifier,
+    viewModel: PokemonListViewModel = hiltViewModel(),
 ) {
     val semiTransparentSurface = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f)
     val pagingData = viewModel.pagingData.collectAsLazyPagingItems()
 
-    Scaffold(topBar = {
-        TopAppBar(title = {
-            Text(text = "Pokemon List")
-        },
-            actions = {
-                IconButton(onClick = {
-                    viewModel.getPokemonList()
-                }) {
-                    Icon(
-                        imageVector = Icons.Default.Refresh,
-                        contentDescription = "Refresh"
-                    )
-                }
-            })
-    }) {
+    Scaffold(
+        modifier = modifier,
+        topBar = {
+            TopAppBar(title = {
+                Text(text = "Pokemon List")
+            },
+                actions = {
+                    IconButton(onClick = {
+                        viewModel.getPokemonList()
+                    }) {
+                        Icon(
+                            imageVector = Icons.Default.Refresh,
+                            contentDescription = "Refresh"
+                        )
+                    }
+                })
+        }) {
         Surface(
             modifier = Modifier
                 .fillMaxSize()
@@ -82,49 +89,61 @@ fun PokemonListScreen(
                         }
 
                     }
-                    pagingData.apply {
-                        when {
-                            loadState.refresh is LoadState.Loading -> Box(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(semiTransparentSurface)
-                                    .align(Alignment.Center),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                CircularProgressIndicator()
-                            }
+                    LoadingStatesComponent(pagingData, semiTransparentSurface, boxScope = this)
+                }
+            }
+        }
+    }
+}
 
-                            loadState.refresh is LoadState.Error -> Box(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(semiTransparentSurface)
-                                    .align(Alignment.Center),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                ErrorStateComponent()
-                            }
+@Composable
+private fun LoadingStatesComponent(
+    pagingData: LazyPagingItems<Pokemon>,
+    semiTransparentSurface: Color,
+    boxScope: BoxScope,
+    modifier: Modifier = Modifier
+) {
+    boxScope.apply {
+        pagingData.apply {
+            when {
+                loadState.refresh is LoadState.Loading -> Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .background(semiTransparentSurface)
+                        .align(Alignment.Center),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
 
-                            loadState.append is LoadState.Loading -> Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .background(semiTransparentSurface)
-                                    .align(Alignment.BottomCenter),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                CircularProgressIndicator()
-                            }
+                loadState.refresh is LoadState.Error -> Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .background(semiTransparentSurface)
+                        .align(Alignment.Center),
+                    contentAlignment = Alignment.Center
+                ) {
+                    ErrorStateComponent()
+                }
 
-                            loadState.append is LoadState.Error -> Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .background(semiTransparentSurface)
-                                    .align(Alignment.BottomCenter),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                ErrorStateComponent()
-                            }
-                        }
-                    }
+                loadState.append is LoadState.Loading -> Box(
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .background(semiTransparentSurface)
+                        .align(Alignment.BottomCenter),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+
+                loadState.append is LoadState.Error -> Box(
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .background(semiTransparentSurface)
+                        .align(Alignment.BottomCenter),
+                    contentAlignment = Alignment.Center
+                ) {
+                    ErrorStateComponent()
                 }
             }
         }

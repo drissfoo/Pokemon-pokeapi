@@ -1,8 +1,9 @@
 [versions]
+jvm = "17"
 agp = "8.3.1"
 datastorePreferences = "1.0.0"
-kotlin = "1.9.10"
-kotlinKsp = "1.9.10-1.0.13"
+kotlin = "1.9.22"
+kotlinKsp = "1.9.22-1.0.17"
 coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -19,6 +20,9 @@ retrofit = "2.9.0"
 paging-compose = "3.3.0-alpha05"
 paging-version = "3.2.1"
 landscapist = "2.2.11"
+
+detekt = "1.23.5"
+detekt-twitter = "0.0.26"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -55,6 +59,8 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 # Image loading
 landscapist-coil = { module = "com.github.skydoves:landscapist-coil", version.ref = "landscapist" }
 
+# Detekt twitter rules
+detekt-twitter = {group = "com.twitter.compose.rules", name = "detekt", version.ref = "detekt-twitter" }
 
 
 [plugins]
@@ -63,4 +69,7 @@ jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "k
 daggerHiltAndroidGradle = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinKsp" }
+
+# Detekt code linting
+detekt = {id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 

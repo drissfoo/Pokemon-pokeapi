@@ -22,6 +22,7 @@ import com.driss.pokemon.domain.model.Stat
 import com.driss.pokemon.domain.model.StatType
 import com.driss.pokemon.ui.theme.Sizes
 import com.driss.pokemon.util.extensions.formatCapitalize
+import com.driss.pokemon.util.extensions.formatPercentage
 
 @Composable
 fun PokemonStatsComponent(
@@ -61,8 +62,7 @@ private fun PokemonStat(
             modifier = Modifier
                 .weight(1f)
                 .height(15.dp),
-            progress =
-            stat.baseStat.toFloat().coerceAtLeast(0f).coerceAtMost(100f) / 100,
+            progress = stat.baseStat.formatPercentage(),
         )
         Spacer(modifier = Modifier.width(Sizes.XXS))
         Text(
@@ -71,6 +71,7 @@ private fun PokemonStat(
         )
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable

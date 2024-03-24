@@ -29,7 +29,7 @@ class PokemonCellTest {
         sprites = SpritesDto(""),
         stats = listOf(
             StatDto(
-                base_stat = 23,
+                baseStat = 23,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "Attack",
@@ -37,7 +37,7 @@ class PokemonCellTest {
                 )
             ),
             StatDto(
-                base_stat = 89,
+                baseStat = 89,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "hp",

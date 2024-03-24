@@ -36,7 +36,7 @@ class FakePokemonRepository : PokemonRepository {
         sprites = SpritesDto(""),
         stats = listOf(
             StatDto(
-                base_stat = 23,
+                baseStat = 23,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "Attack",
@@ -69,7 +69,7 @@ class FakePokemonRepository : PokemonRepository {
         sprites = SpritesDto(""),
         stats = listOf(
             StatDto(
-                base_stat = 66,
+                baseStat = 66,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "hp",
@@ -77,7 +77,7 @@ class FakePokemonRepository : PokemonRepository {
                 )
             ),
             StatDto(
-                base_stat = 78,
+                baseStat = 78,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "Speed",
@@ -110,7 +110,7 @@ class FakePokemonRepository : PokemonRepository {
         sprites = SpritesDto(""),
         stats = listOf(
             StatDto(
-                base_stat = 23,
+                baseStat = 23,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "Attack",
@@ -118,7 +118,7 @@ class FakePokemonRepository : PokemonRepository {
                 )
             ),
             StatDto(
-                base_stat = 89,
+                baseStat = 89,
                 effort = 0,
                 stat = StatTypeDto(
                     name = "hp",

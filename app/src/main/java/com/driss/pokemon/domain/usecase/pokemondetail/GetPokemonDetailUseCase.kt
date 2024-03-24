@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class GetPokemonDetailUseCase @Inject constructor(private val repository: PokemonRepository) {
 
-    suspend fun execute(name: String): Flow<Result<Pokemon?>> {
+    fun execute(name: String): Flow<Result<Pokemon?>> {
         return flow {
             emit(Result.loading())
             val response = repository.getPokemonDetail(name = name)

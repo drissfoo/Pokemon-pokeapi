@@ -1,5 +1,8 @@
 package com.driss.pokemon.data.entity
 
+import com.google.gson.annotations.SerializedName
+
 data class SpritesDto(
-    val front_default: String
+    @SerializedName("front_default")
+    val frontDefault: String
 )
