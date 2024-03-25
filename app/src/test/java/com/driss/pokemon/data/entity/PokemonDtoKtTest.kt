@@ -1,9 +1,8 @@
 package com.driss.pokemon.data.entity
 
 import com.driss.pokemon.domain.model.Pokemon
-import com.driss.pokemon.util.FakePokemonRepository
 import com.driss.pokemon.util.bulbasaur
-import org.junit.Assert.assertTrue
+import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 
 class PokemonDtoKtTest {
@@ -21,15 +20,12 @@ class PokemonDtoKtTest {
             id = entryPokemonDto.id
         )
         val computedPokemon = entryPokemonDto.toModel()
-        assertTrue(
-            computedPokemon.name == expectedPokemon.name
-                    && computedPokemon.id == expectedPokemon.id
-                    && computedPokemon.frontSprite == expectedPokemon.frontSprite
-                    && computedPokemon.pokemonTypes.size == expectedPokemon.pokemonTypes.size
-                    && computedPokemon.stats.size == expectedPokemon.stats.size
-                    && computedPokemon.weight == expectedPokemon.weight
-                    && computedPokemon.height == expectedPokemon.height
-
-        )
+        assertThat(computedPokemon.name == expectedPokemon.name).isTrue()
+        assertThat(computedPokemon.id == expectedPokemon.id).isTrue()
+        assertThat(computedPokemon.frontSprite == expectedPokemon.frontSprite).isTrue()
+        assertThat(computedPokemon.pokemonTypes.size == expectedPokemon.pokemonTypes.size).isTrue()
+        assertThat(computedPokemon.stats.size == expectedPokemon.stats.size).isTrue()
+        assertThat(computedPokemon.weight == expectedPokemon.weight).isTrue()
+        assertThat(computedPokemon.height == expectedPokemon.height).isTrue()
     }
 }

@@ -12,9 +12,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class FakePokemonRepository : PokemonRepository {
-    val apiService = FakeApiService()
+    private val apiService = FakeApiService()
 
-    override suspend fun getPokemonList(): Flow<PagingData<Pokemon>> {
+    override fun getPokemonList(): Flow<PagingData<Pokemon>> {
         return Pager(
             config = PagingConfig(
                 pageSize = PokemonListDataSourceFactory.PAGE_ITEMS_SIZE,
@@ -24,7 +24,7 @@ class FakePokemonRepository : PokemonRepository {
         ).flow
     }
 
-    override suspend fun getPokemonDetail(name: String): Flow<Result<Pokemon>> {
+    override fun getPokemonDetail(name: String): Flow<Result<Pokemon>> {
         return flow {
             emit(Result.loading())
             val pokemon = listPokemonDto.firstOrNull {

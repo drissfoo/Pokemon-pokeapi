@@ -2,12 +2,11 @@ package com.driss.pokemon.data.entity
 
 import com.driss.pokemon.domain.model.Stat
 import com.driss.pokemon.domain.model.StatType
-import com.driss.pokemon.util.FakePokemonRepository
 import com.driss.pokemon.util.ivysaur
-import org.junit.Assert.*
+import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 
-class StatDtoKtTest{
+class StatDtoKtTest {
 
 
     @Test
@@ -24,13 +23,10 @@ class StatDtoKtTest{
             )
         }
         val computedPokemonStats = entryPokemonStatsDto.toModel()
-        assertTrue(
-            computedPokemonStats.size == expectedPokemonStats.size
-                    && computedPokemonStats[1].stat.name == expectedPokemonStats[1].stat.name
-                    && computedPokemonStats[1].stat.url == expectedPokemonStats[1].stat.url
-                    && computedPokemonStats[1].effort == expectedPokemonStats[1].effort
-                    && computedPokemonStats[1].baseStat == expectedPokemonStats[1].baseStat
-
-        )
+        assertThat(computedPokemonStats.size == expectedPokemonStats.size).isTrue()
+        assertThat(computedPokemonStats[1].stat.name == expectedPokemonStats[1].stat.name).isTrue()
+        assertThat(computedPokemonStats[1].stat.url == expectedPokemonStats[1].stat.url).isTrue()
+        assertThat(computedPokemonStats[1].effort == expectedPokemonStats[1].effort).isTrue()
+        assertThat(computedPokemonStats[1].baseStat == expectedPokemonStats[1].baseStat).isTrue()
     }
 }

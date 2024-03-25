@@ -2,9 +2,8 @@ package com.driss.pokemon.data.entity
 
 import com.driss.pokemon.domain.model.PokemonType
 import com.driss.pokemon.domain.model.Type
-import com.driss.pokemon.util.FakePokemonRepository
 import com.driss.pokemon.util.bulbasaur
-import org.junit.Assert.*
+import com.google.common.truth.Truth.assertThat
 
 import org.junit.Test
 
@@ -24,12 +23,9 @@ class PokemonTypeDtoKtTest {
             )
         }
         val computedPokemonTypes = entryPokemonTypesDto.toModel()
-        assertTrue(
-            computedPokemonTypes.size == expectedPokemon.size
-                    && computedPokemonTypes[0].type.name == expectedPokemon[0].type.name
-                    && computedPokemonTypes[0].type.url == expectedPokemon[0].type.url
-                    && computedPokemonTypes[0].slot == expectedPokemon[0].slot
-
-        )
+        assertThat(computedPokemonTypes.size == expectedPokemon.size).isTrue()
+        assertThat(computedPokemonTypes[0].type.name == expectedPokemon[0].type.name).isTrue()
+        assertThat(computedPokemonTypes[0].type.url == expectedPokemon[0].type.url).isTrue()
+        assertThat(computedPokemonTypes[0].slot == expectedPokemon[0].slot).isTrue()
     }
 }

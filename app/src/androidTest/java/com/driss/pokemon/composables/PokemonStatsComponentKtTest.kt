@@ -1,4 +1,4 @@
-package com.driss.pokemon.common
+package com.driss.pokemon.composables
 
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertIsDisplayed
