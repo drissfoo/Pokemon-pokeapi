@@ -24,10 +24,6 @@ la librairie Paging nous permet de mettre en place un systeme de pagination pour
 - Des tests unitaires sont ajoutés pour tester les uses cases et le paging source ainsi que des tests unitaires du mapping entre les entités et les models
 - Des tests UI (instrementalisés) sont ajoutés pour tester les composables.
 
-Jetpack Compose nous permet de créer du UI d'une façon déclarative, il apporte aussi beaucoup d'amélioration de performance grâce notamment à son système de recomposition intelligent et efficace.
-
-la librairie Paging nous permet de mettre en place un systeme de pagination pour charger nos items de l'api, elle gére les requetes et les erreurs qui peuvent survenir au cours de chargement de nouveau data.
-
 ## Theming
 
 Dark mode et light mode selon le thème du device.
@@ -66,6 +62,8 @@ Le plugin Detekt de [twitter][15] est utilisé en plus des règles par défaut p
 [6]:  https://dagger.dev/hilt/
 
 [7]: https://github.com/skydoves/landscapist
+
+[8]: https://truth.dev/
 
 [13]: https://m3.material.io/theme-builder
 
