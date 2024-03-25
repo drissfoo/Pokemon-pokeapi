@@ -1,7 +1,7 @@
 <h1 align="center">Pokemon showcase Android App</h1>
 
 <p align="center">
-Le but de ce projet est de demontrer les connaissances en developpement Android en Kotlin, en utilisant une clean architecture avec MVVM, le UI étant créer en Jetpack Compose. le projet utilise l'api publique https://pokeapi.co/
+Le but de ce projet est de démontrer les connaissances en développement Android en Kotlin, en utilisant une clean architecture avec MVVM, le UI étant créer en Jetpack Compose. le projet utilise l'api publique https://pokeapi.co/
 </p> 
 
 
@@ -15,6 +15,14 @@ ainsi permettant une résilience face aux changements (maintenance) et une flexi
 <p>La couche presentation n'a aucune dépendance avec la couche data et vice-versa</p>
 
 ## Compose et paging 3.0
+
+Jetpack Compose nous permet de créer du UI d'une façon déclarative, il apporte aussi beaucoup d'amélioration de performance grâce notamment à son système de recomposition intelligent et efficace.
+
+la librairie Paging nous permet de mettre en place un systeme de pagination pour charger nos items de l'api, elle gére les requetes et les erreurs qui peuvent survenir au cours de chargement de nouveau data.
+
+## Tests unitaires et UI
+- Des tests unitaires sont ajoutés pour tester les uses cases et le paging source ainsi que des tests unitaires du mapping entre les entités et les models
+- Des tests UI (instrementalisés) sont ajoutés pour tester les composables.
 
 Jetpack Compose nous permet de créer du UI d'une façon déclarative, il apporte aussi beaucoup d'amélioration de performance grâce notamment à son système de recomposition intelligent et efficace.
 
@@ -40,6 +48,7 @@ Le plugin Detekt de [twitter][15] est utilisé en plus des règles par défaut p
 * [OkHttp3][5] Client http permettant de faire des requêtes http.
 * [Dagger Hilt][6] Librairie facilitant l'injection de dépendance.
 * [Landscapist-Coil][7] Image downloading and caching library supported by Jetpack Compose.
+* [Truth][8] Librairie pour écrire plus clairement les assertions de tests.
 
 
 [0]:  https://developer.android.com/jetpack
