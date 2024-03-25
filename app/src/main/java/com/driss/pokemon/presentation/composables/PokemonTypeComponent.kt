@@ -1,4 +1,4 @@
-package com.driss.pokemon.presentation.common
+package com.driss.pokemon.presentation.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.driss.pokemon.domain.model.PokemonType
 import com.driss.pokemon.domain.model.Type
-import com.driss.pokemon.ui.theme.Sizes
+import com.driss.pokemon.presentation.ui.theme.Sizes
 import com.driss.pokemon.util.extensions.capitalizeFirst
 import java.util.Locale
 

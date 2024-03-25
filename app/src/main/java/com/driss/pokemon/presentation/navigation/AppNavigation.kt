@@ -1,4 +1,4 @@
-package com.driss.pokemon
+package com.driss.pokemon.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider

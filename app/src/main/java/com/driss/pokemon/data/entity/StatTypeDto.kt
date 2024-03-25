@@ -8,7 +8,6 @@ data class StatTypeDto(
 )
 
 
-
 fun StatTypeDto.toModel(): StatType = StatType(
     name = name,
     url = url

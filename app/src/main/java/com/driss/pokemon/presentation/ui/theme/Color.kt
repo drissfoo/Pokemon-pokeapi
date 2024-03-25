@@ -1,5 +1,6 @@
 @file:Suppress("MagicNumber")
-package com.driss.pokemon.ui.theme
+
+package com.driss.pokemon.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

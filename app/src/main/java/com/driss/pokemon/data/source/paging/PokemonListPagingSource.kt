@@ -1,13 +1,13 @@
-package com.driss.pokemon.domain.usecase.pokemonlist
+package com.driss.pokemon.data.source.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.driss.pokemon.data.entity.toModel
+import com.driss.pokemon.data.source.PokemonApi
 import com.driss.pokemon.domain.model.Pokemon
-import com.driss.pokemon.domain.repository.PokemonRepository
 
 class PokemonListPagingSource(
-    private val repository: PokemonRepository
+    private val apiService: PokemonApi
 ) : PagingSource<Int, Pokemon>() {
 
     override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? =
@@ -17,16 +17,16 @@ class PokemonListPagingSource(
         }
 
     override suspend fun load(params: LoadParams<Int>):
-            LoadResult<Int, Pokemon>  {
+            LoadResult<Int, Pokemon> {
         val offset = params.key ?: 0
         val limit = params.loadSize
-        val response = repository.getPokemonList(offset = offset, limit = limit)
+        val response = apiService.getPokemonList(offset = offset, limit = limit)
         val data = response.body()
         return if (!response.isSuccessful) {
             LoadResult.Error(Exception("Request error"))
         } else if (data != null) {
             val list: List<Pokemon> = data.results.mapNotNull {
-                repository.getPokemonDetail(it.name).body()?.toModel()
+                apiService.getPokemonDetail(it.name).body()?.toModel()
             }
             LoadResult.Page(
                 data = list,

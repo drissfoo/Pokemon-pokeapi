@@ -30,12 +30,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.driss.pokemon.LocalNavController
+import com.driss.pokemon.presentation.navigation.LocalNavController
 import com.driss.pokemon.domain.model.Pokemon
-import com.driss.pokemon.presentation.common.ErrorStateComponent
-import com.driss.pokemon.presentation.common.PokemonStatsComponent
-import com.driss.pokemon.presentation.common.PokemonTypeComponent
-import com.driss.pokemon.ui.theme.Sizes
+import com.driss.pokemon.presentation.composables.ErrorStateComponent
+import com.driss.pokemon.presentation.composables.PokemonStatsComponent
+import com.driss.pokemon.presentation.composables.PokemonTypeComponent
+import com.driss.pokemon.presentation.ui.theme.Sizes
 import com.driss.pokemon.util.IResult
 import com.driss.pokemon.util.extensions.capitalizeFirst
 import com.skydoves.landscapist.coil.CoilImage
@@ -72,16 +72,16 @@ fun PokemonDetail(
         Scaffold(
             modifier = modifier,
             topBar = {
-            TopAppBar(title = { Text(text = details.name.capitalizeFirst()) },
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back"
-                        )
-                    }
-                })
-        }) {
+                TopAppBar(title = { Text(text = details.name.capitalizeFirst()) },
+                    navigationIcon = {
+                        IconButton(onClick = { navController.popBackStack() }) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = "Back"
+                            )
+                        }
+                    })
+            }) {
             Column(
                 modifier = Modifier
                     .padding(it)
@@ -112,4 +112,3 @@ fun PokemonDetail(
         }
     }
 }
-

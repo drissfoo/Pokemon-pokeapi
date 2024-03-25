@@ -11,7 +11,6 @@ data class StatDto(
 )
 
 
-
 internal fun List<StatDto>.toModel(): List<Stat> {
     return map {
         Stat(

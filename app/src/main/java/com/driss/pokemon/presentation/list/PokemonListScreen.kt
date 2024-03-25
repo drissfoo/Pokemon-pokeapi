@@ -31,8 +31,8 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.driss.pokemon.domain.model.Pokemon
-import com.driss.pokemon.presentation.common.ErrorStateComponent
-import com.driss.pokemon.ui.theme.Sizes
+import com.driss.pokemon.presentation.composables.ErrorStateComponent
+import com.driss.pokemon.presentation.ui.theme.Sizes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

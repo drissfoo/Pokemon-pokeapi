@@ -13,8 +13,7 @@ data class PokemonDto(
 )
 
 
-
-internal fun PokemonDto.toModel() : Pokemon {
+internal fun PokemonDto.toModel(): Pokemon {
     return Pokemon(
         height = height,
         id = id,

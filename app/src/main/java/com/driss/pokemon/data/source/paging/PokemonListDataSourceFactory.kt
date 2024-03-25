@@ -1,12 +1,12 @@
-package com.driss.pokemon.domain.usecase.pokemonlist
+package com.driss.pokemon.data.source.paging
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.driss.pokemon.domain.repository.PokemonRepository
+import com.driss.pokemon.data.source.PokemonApi
 import javax.inject.Inject
 
 class PokemonListDataSourceFactory @Inject constructor(
-    private val repository: PokemonRepository
+    private val apiService: PokemonApi
 ) {
     companion object {
         const val PAGE_ITEMS_SIZE = 20
@@ -17,6 +17,6 @@ class PokemonListDataSourceFactory @Inject constructor(
             pageSize = PAGE_ITEMS_SIZE,
             enablePlaceholders = false
         ),
-        pagingSourceFactory = { PokemonListPagingSource(repository) }
+        pagingSourceFactory = { PokemonListPagingSource(apiService) }
     ).flow
 }

@@ -5,7 +5,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.navigation.compose.rememberNavController
-import com.driss.pokemon.LocalNavController
+import com.driss.pokemon.presentation.navigation.LocalNavController
 import com.driss.pokemon.data.entity.PokemonDto
 import com.driss.pokemon.data.entity.PokemonTypeDto
 import com.driss.pokemon.data.entity.SpritesDto
@@ -13,8 +13,8 @@ import com.driss.pokemon.data.entity.StatDto
 import com.driss.pokemon.data.entity.StatTypeDto
 import com.driss.pokemon.data.entity.TypeDto
 import com.driss.pokemon.data.entity.toModel
-import com.driss.pokemon.presentation.common.PokemonStatsComponent
-import com.driss.pokemon.ui.theme.AppTheme
+import com.driss.pokemon.presentation.composables.PokemonStatsComponent
+import com.driss.pokemon.presentation.ui.theme.AppTheme
 import org.junit.Rule
 import org.junit.Test
 

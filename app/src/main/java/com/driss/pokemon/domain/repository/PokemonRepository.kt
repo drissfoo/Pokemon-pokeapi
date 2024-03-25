@@ -1,11 +1,12 @@
 package com.driss.pokemon.domain.repository
 
-import com.driss.pokemon.data.entity.PokemonDto
-import com.driss.pokemon.data.entity.PokemonListDto
-import retrofit2.Response
+import androidx.paging.PagingData
+import com.driss.pokemon.domain.model.Pokemon
+import com.driss.pokemon.util.Result
+import kotlinx.coroutines.flow.Flow
 
 interface PokemonRepository {
-    suspend fun getPokemonList(limit: Int, offset: Int): Response<PokemonListDto>
+    fun getPokemonList(): Flow<PagingData<Pokemon>>
 
-    suspend fun getPokemonDetail(name: String): Response<PokemonDto>
+    fun getPokemonDetail(name: String): Flow<Result<Pokemon>>
 }

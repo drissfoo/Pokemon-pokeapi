@@ -1,14 +1,15 @@
-package com.driss.pokemon.domain.usecase.pokemondetail
+package com.driss.pokemon.domain.usecase.detail
 
 import com.driss.pokemon.util.FakePokemonRepository
 import com.driss.pokemon.util.IResult
+import com.driss.pokemon.util.listPokemonDto
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
 class GetPokemonDetailUseCaseTest {
-    lateinit var fakeRepo: FakePokemonRepository
+    private lateinit var fakeRepo: FakePokemonRepository
     lateinit var detailUseCase: GetPokemonDetailUseCase
 
     @Before
@@ -19,8 +20,8 @@ class GetPokemonDetailUseCaseTest {
 
     @Test
     fun `get pokemon detail by name expect success`() = runBlocking {
-        val expectedResult = fakeRepo.listPokemonDto[0]
-        detailUseCase.execute(expectedResult.name).collect {
+        val expectedResult = listPokemonDto[0]
+        detailUseCase(expectedResult.name).collect {
             when (it.status) {
                 IResult.Status.SUCCESS -> assertTrue(it.data?.name == expectedResult.name)
                 IResult.Status.ERROR -> assertTrue(false)
@@ -30,11 +31,10 @@ class GetPokemonDetailUseCaseTest {
     }
 
 
-
     @Test
     fun `get pokemon detail by name expect error`() = runBlocking {
         val expectedResult = "not_there"
-        detailUseCase.execute(expectedResult).collect {
+        detailUseCase(expectedResult).collect {
             when (it.status) {
                 IResult.Status.SUCCESS -> assertTrue(false)
                 IResult.Status.ERROR -> assertTrue(true)

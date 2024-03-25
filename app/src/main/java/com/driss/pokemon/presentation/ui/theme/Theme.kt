@@ -1,4 +1,4 @@
-package com.driss.pokemon.ui.theme
+package com.driss.pokemon.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

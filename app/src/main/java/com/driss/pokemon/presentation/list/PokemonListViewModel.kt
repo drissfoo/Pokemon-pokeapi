@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.driss.pokemon.domain.model.Pokemon
-import com.driss.pokemon.domain.usecase.pokemonlist.GetPokemonListUseCase
+import com.driss.pokemon.domain.usecase.list.GetPokemonListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -35,8 +35,7 @@ class PokemonListViewModel @Inject constructor(
     }
 
     private suspend fun getPokemons() {
-        useCase
-            .execute()
+        useCase()
             .distinctUntilChanged()
             .cachedIn(viewModelScope)
             .collect {

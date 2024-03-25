@@ -3,17 +3,17 @@ package com.driss.pokemon.data.entity
 import com.driss.pokemon.domain.model.PokemonType
 import com.driss.pokemon.domain.model.Type
 import com.driss.pokemon.util.FakePokemonRepository
+import com.driss.pokemon.util.bulbasaur
 import org.junit.Assert.*
 
 import org.junit.Test
 
 class PokemonTypeDtoKtTest {
 
-    private val repository: FakePokemonRepository = FakePokemonRepository()
 
     @Test
     fun `check mapping from PokemonTypesDto to PokemonType is precise`() {
-        val entryPokemonTypesDto = repository.bulbasaur.types
+        val entryPokemonTypesDto = bulbasaur.types
         val expectedPokemon = entryPokemonTypesDto.map {
             PokemonType(
                 type = Type(

@@ -1,4 +1,4 @@
-package com.driss.pokemon.presentation.common
+package com.driss.pokemon.presentation.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,9 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.driss.pokemon.ui.theme.Sizes
+import com.driss.pokemon.presentation.ui.theme.Sizes
 
 @Composable
 fun ErrorStateComponent(modifier: Modifier = Modifier) {

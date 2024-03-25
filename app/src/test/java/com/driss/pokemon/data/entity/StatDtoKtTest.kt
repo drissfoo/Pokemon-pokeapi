@@ -3,16 +3,16 @@ package com.driss.pokemon.data.entity
 import com.driss.pokemon.domain.model.Stat
 import com.driss.pokemon.domain.model.StatType
 import com.driss.pokemon.util.FakePokemonRepository
+import com.driss.pokemon.util.ivysaur
 import org.junit.Assert.*
 import org.junit.Test
 
 class StatDtoKtTest{
 
-    private val repository: FakePokemonRepository = FakePokemonRepository()
 
     @Test
     fun `check mapping from StatDto to Stat is precise`() {
-        val entryPokemonStatsDto = repository.ivysaur.stats
+        val entryPokemonStatsDto = ivysaur.stats
         val expectedPokemonStats = entryPokemonStatsDto.map {
             Stat(
                 stat = StatType(

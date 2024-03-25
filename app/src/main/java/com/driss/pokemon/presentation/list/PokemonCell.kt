@@ -22,10 +22,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.driss.pokemon.LocalNavController
-import com.driss.pokemon.Screens
+import com.driss.pokemon.presentation.navigation.LocalNavController
+import com.driss.pokemon.presentation.navigation.Screens
 import com.driss.pokemon.domain.model.Pokemon
-import com.driss.pokemon.ui.theme.Sizes
+import com.driss.pokemon.presentation.ui.theme.Sizes
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.coil.CoilImage
 import java.util.Locale

@@ -1,4 +1,4 @@
-package com.driss.pokemon.presentation.common
+package com.driss.pokemon.presentation.composables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.driss.pokemon.domain.model.Stat
 import com.driss.pokemon.domain.model.StatType
-import com.driss.pokemon.ui.theme.Sizes
+import com.driss.pokemon.presentation.ui.theme.Sizes
 import com.driss.pokemon.util.extensions.formatCapitalize
 import com.driss.pokemon.util.extensions.formatPercentage
 

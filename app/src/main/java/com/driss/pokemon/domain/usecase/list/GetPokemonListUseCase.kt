@@ -1,13 +1,14 @@
-package com.driss.pokemon.domain.usecase.pokemonlist
+package com.driss.pokemon.domain.usecase.list
 
 import androidx.paging.PagingData
+import com.driss.pokemon.data.source.paging.PokemonListDataSourceFactory
 import com.driss.pokemon.domain.model.Pokemon
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class GetPokemonListUseCase @Inject constructor(private val factory: PokemonListDataSourceFactory) {
 
-    fun execute(): Flow<PagingData<Pokemon>> {
+    operator fun invoke(): Flow<PagingData<Pokemon>> {
         return factory.getPokemonListPager()
     }
 }

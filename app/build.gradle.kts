@@ -48,7 +48,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
+        kotlinCompilerExtensionVersion = "1.5.11"
     }
     packaging {
         resources {
@@ -102,10 +102,14 @@ dependencies {
     implementation(libs.androidx.paging.runtime)
     // alternatively - without Android dependencies for tests
     testImplementation(libs.androidx.paging.common)
+    testImplementation(libs.androidx.paging.testing)
     // optional - Jetpack Compose integration
     implementation(libs.androidx.paging.compose)
 
     implementation(libs.androidx.datastore.preferences)
+
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.google.truth)
 
     // Detekt plugin                                                                                                  //
     detektPlugins(libs.detekt.twitter)
